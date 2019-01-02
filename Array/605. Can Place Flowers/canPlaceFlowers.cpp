@@ -8,7 +8,7 @@ public:
 		for (int i = 0; i < len; i++) {
 			if (i < len-1 && flowerbed[i] == 0) ++cnt;//统计0的个数，从0到n-2位置
 			else if(i == len-1 || flowerbed[i] == 1){ //此位置是1或到了最后一个位置
-                if(flowerbed[i] == 0) ++cnt; //最后一个位置仍为0
+                		if(flowerbed[i] == 0) ++cnt; //最后一个位置仍为0
 				sum += (cnt - 1) / 2; //根据前面0的个数，计算前面可以放几个1
 				cnt = 0;
 			}
