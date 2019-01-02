@@ -17,3 +17,25 @@ public:
 		return sum >= n;
 	}
 };
+
+class Solution {
+public:
+	bool canPlaceFlowers(vector<int>& flowerbed, int n) {
+		if (flowerbed.size() == 0) return false;
+		for (int i = 0; i < flowerbed.size() && n > 0; i++) {
+			if (flowerbed[i] == 0 && i == 0 && flowerbed[i + 1] == 0) {
+				flowerbed[i] = 1;
+				n--; //001
+			}
+			if (flowerbed[i] == 0 && flowerbed[i - 1] == 0 && flowerbed[i + 1] == 0) {
+				flowerbed[i] = 1;
+				n--; //10001
+			}
+			if (flowerbed[i] == 0 && i == flowerbed.size() - 1 && flowerbed[i - 1] == 0) {
+				flowerbed[i] = 1;
+				n--;//100
+			}
+		}
+		return n == 0;
+	}
+};
